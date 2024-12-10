@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import {Logout} from "../Utility/Utility";
 
 const UserSidebar = () => {
-    const {user} = useStateContext()
+    const {user,cart,order} = useStateContext()
     const logout = Logout()
     return (
         <aside className="col-lg-4 pt-4 pt-lg-0 pe-xl-5">
@@ -22,8 +22,8 @@ const UserSidebar = () => {
                         <h3 className="fs-sm mb-0 text-muted">Dashboard</h3>
                     </div>
                     <ul className="list-unstyled mb-0">
-                        <li className="border-bottom mb-0"><Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/dashboard/Orders"><i className="ci-bag opacity-60 me-2"></i>Orders<span className="fs-sm text-muted ms-auto">1</span></Link></li>
-                        <li className="border-bottom mb-0"><Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/dashboard/cart"><i className="ci-heart opacity-60 me-2"></i>Cart<span className="fs-sm text-muted ms-auto">3</span></Link></li>
+                        <li className="border-bottom mb-0"><Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/dashboard/Orders"><i className="ci-bag opacity-60 me-2"></i>Orders<span className="fs-sm text-muted ms-auto">{order? Object.values(order).length:''}</span></Link></li>
+                        <li className="border-bottom mb-0"><Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/dashboard/cart"><i className="ci-heart opacity-60 me-2"></i>Cart<span className="fs-sm text-muted ms-auto">{Object.values(cart).length}</span></Link></li>
                         <li className="mb-0"><Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/dashboard/purchase"><i className="ci-help opacity-60 me-2"></i>Purchased<span className="fs-sm text-muted ms-auto">1</span></Link></li>
                         <li className="mb-0"><Link className="nav-link-style d-flex align-items-center px-4 py-3" to="/dashboard/cancelledOrder"><i className="ci-help opacity-60 me-2"></i>Cancelled Order<span className="fs-sm text-muted ms-auto">1</span></Link></li>
                     </ul>

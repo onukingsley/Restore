@@ -3,6 +3,7 @@ import Login from "./views/Login";
 import Signup from "./views/Signup";
 import NotFound from "./views/NotFound";
 import Layout from "./components/Layout";
+import VendorLayout from "./views/StoreDashboard/Layout";
 import Index from "./views";
 import UserOrders from "./views/userDashboard/UserOrders";
 import UserCart from "./views/userDashboard/UserCart";
@@ -16,6 +17,15 @@ import CheckoutPayment from "./views/userDashboard/checkout/checkoutPayment";
 import CheckoutDetails from "./views/userDashboard/checkout/checkoutDetails";
 import {loadStripe} from '@stripe/stripe-js'
 import {Elements} from "@stripe/react-stripe-js";
+import VendorIndex from "./views/StoreDashboard/VendorIndex";
+import VendorProfile from "./views/StoreDashboard/VendorProfile";
+import VendorPurchase from "./views/StoreDashboard/VendorPurchase";
+import VendorCart from "./views/StoreDashboard/VendorCart";
+import VendorSales from "./views/StoreDashboard/VendorSales";
+import VendorPendingOrders from "./views/StoreDashboard/VendorPendingOrders";
+import VendorProduct from "./views/StoreDashboard/VendorProduct";
+import VendorAddProduct from "./views/StoreDashboard/VendorAddProduct";
+import VendorPayout from "./views/StoreDashboard/VendorPayout";
 
 const stripePromise = loadStripe('pk_test_51MqbTFBhiAQUIShna8m6VNqpc9dp5x8Il6SZE3wwaJKQWcf5xhZ0dnSUfWxXK3UOpECxwKKThPVtoRGU2eAHjkpr001ffNx9tM')
 
@@ -105,44 +115,44 @@ const router = createBrowserRouter([
     //Vendor Dashboard
     {
         path: '/vendor',
-        element: '',
+        element: <VendorLayout/>,
         children: [
             {
               path: '/vendor/:id',
-              element: ''
+              element: <VendorIndex/>
             },
             {
                 path: '/vendor/profile',
-                element: ''
+                element: <VendorProfile/>
             },
             {
                 path: '/vendor/purchases',
-                element: ''
+                element: <VendorPurchase/>
             },
             {
                 path: '/vendor/cart',
-                element: ''
+                element: <VendorCart/>
             },
             //Sales Section
             {
                 path: '/vendor/sales',
-                element: ''
+                element: <VendorSales/>
             },
             {
                 path: '/vendor/pendingOrders',
-                element: ''
+                element: <VendorPendingOrders/>
             },
             {
                 path: '/vendor/products',
-                element: ''
+                element: <VendorProduct/>
             },
             {
                 path: '/vendor/addProduct',
-                element: ''
+                element: <VendorAddProduct/>
             },
             {
                 path: '/vendor/payout',
-                element: ''
+                element: <VendorPayout/>
             },
         ]
     },

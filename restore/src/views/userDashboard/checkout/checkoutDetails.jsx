@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import OrderSummary from "../../../components/OrderSummary";
 import {useStateContext} from "../../../contexts/ContextProvider";
 import axiosClient from "../../../axios-client";
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 const CheckoutDetails = () => {
 
@@ -46,23 +46,15 @@ const CheckoutDetails = () => {
                 <div className="row">
                     <section className="col-lg-8">
                         {/*-- Steps-->*/}
-                        <div className="steps steps-light pt-2 pb-3 mb-5"><a className="step-item active"
-                                                                             href="shop-cart.html">
+                        <div className="steps steps-light pt-2 pb-3 mb-5"><Link className="step-item active" to="/dashboard/cart">
                             <div className="step-progress"><span className="step-count">1</span></div>
-                            <div className="step-label"><i className="ci-cart"></i>Cart</div>
-                        </a><a className="step-item active current" href="checkout-details.html">
+                            <div className="step-label"><i className="ci-cart"></i>Cart</div></Link><Link className="step-item active current" to="/dashboard/checkoutDetails">
                             <div className="step-progress"><span className="step-count">2</span></div>
-                            <div className="step-label"><i className="ci-user-circle"></i>Details</div>
-                        </a><a className="step-item" href="checkout-shipping.html">
+                            <div className="step-label"><i className="ci-user-circle"></i>Details</div></Link><Link className="step-item " to="/dashboard/checkoutShipping">
                             <div className="step-progress"><span className="step-count">3</span></div>
-                            <div className="step-label"><i className="ci-package"></i>Shipping</div>
-                        </a><a className="step-item" href="checkout-payment.html">
+                            <div className="step-label"><i className="ci-package"></i>Shipping</div></Link><Link className="step-item" to="/dashboard/checkoutReview">
                             <div className="step-progress"><span className="step-count">4</span></div>
-                            <div className="step-label"><i className="ci-card"></i>Payment</div>
-                        </a><a className="step-item" href="checkout-review.html">
-                            <div className="step-progress"><span className="step-count">5</span></div>
-                            <div className="step-label"><i className="ci-check-circle"></i>Review</div>
-                        </a></div>
+                            <div className="step-label"><i className="ci-check-circle"></i>Review</div></Link></div>
                         {/*-- Autor info-->*/}
                         <div
                             className="d-sm-flex justify-content-between align-items-center bg-secondary p-4 rounded-3 mb-grid-gutter">
